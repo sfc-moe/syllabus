@@ -8,9 +8,6 @@ def send_request(course_id)
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true
   http.verify_mode = OpenSSL::SSL::VERIFY_PEER
-  data = {
-  }
-  body = URI.encode_www_form(data)
 
   # Create Request
   req =  Net::HTTP::Get.new(uri)
@@ -18,8 +15,6 @@ def send_request(course_id)
   req.add_field "Authorization", "Bearer #{ENV['AUTH']}"
   # Add headers
   req.add_field "Content-Type", "application/x-www-form-urlencoded; charset=utf-8"
-  # Set body
-  req.body = body
 
   # Fetch Request
   res = http.request(req)
