@@ -1,3 +1,10 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - main
+
 jobs:
   build:
     runs-on: ubuntu-16.04
